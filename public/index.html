@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" type="image/png" sizes="16x16" href="./image/icons/favicon.ico" />
+	<title>cards</title>
+	<script type="module" src="./js/script.js" nonce="abc123" defer></script>
+	<script src="./js/client-crudfs2server.js" nonce="abc123" defer></script>
+	<script src="./js/with-indexdb.js" nonce="abc123" defer></script>
+	<script src="./js/with-local+session.js" nonce="abc123" defer></script>
+
+	<script type="text/javascript" src="./js/select.js" nonce="abc123" defer></script>
+	<!-- Load the Twitch embed script-->
+	<!-- <script src="https://player.twitch.tv/js/embed/v1.js" defer></script> -->
+	<!-- Create a Twitch.Player object. This will render within the placeholder div, actually i should think mobile first, enable with a checkbox -->
+	<script src="./js/twitch.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet"
+		type="text/css" />
+	<link rel="stylesheet" href="./css/style.css" type="text/css" />
+	<link rel="stylesheet" href="./css/cardstyle.css" type="text/css" />
+	<link rel="stylesheet" href="./css/radio-form.css" type="text/css" />
+	<link rel="stylesheet" href="./css/animate/animate.min.css" type="text/css" />
+	<!-- <link rel="stylesheet" href="./css/candle.css" type="text/css"/> -->
+</head>
+<noscript> this Website needs Javascript </noscript>
+
+<body>
+	<nav class="container bg-transparent navbar py-0 px-4">
+		<svg id="hy" viewBox="0 0 73 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="70" height="70" fill="#1E1E1E" />
+			<path
+				d="M0.272728 94V0.909088H11.5455V42.3636H61.1818V0.909088H72.4546V94H61.1818V52.3636H11.5455V94H0.272728Z"
+				fill="#F96B6B" />
+			<path
+				d="M6.45455 12.1818H16.1364L35.5 44.7727H36.3182L55.6818 12.1818H65.3636L40.1364 53.2273V82H31.6818V53.2273L6.45455 12.1818Z"
+				fill="#97CFEE" />
+		</svg>
+
+		<div class="ms-auto">
+			<a href="./index.html" class="nav-item nav-link">Home</a>
+			<a href="#cardHolder" class="nav-item nav-link">About</a>
+			<div class="nav-item dropdown">
+				<a href="#" class="nav-link dropdown-toggle">Projects</a>
+				<div class="dropdown-menu rounded-0 m-0">
+					<ul>
+						<li>
+							<a href="https://h4-html-css.vercel.app" class="dropdown-item" title="Portf1">Portf 1</a>
+						</li>
+						<li>
+							<a href="https://portf2-zeta.vercel.app" class="dropdown-item" title="Portf2">Portf 2</a>
+						</li>
+						<li>
+							<a href="https://soloist.ai/script4sale" class="dropdown-item" title="script4u">script4u</a>
+						</li>
+						<li>
+							<a href="#" class="dropdown-item" target="_self" referrerpolicy="no-referrer" title="pay"
+								style="color: dimgray;">---</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="nav-item dropdown">
+				<a href="#" class="nav-link dropdown-toggle active">Pages</a>
+				<div class="dropdown-menu">
+					<ul>
+						<li>
+							<a href="https://github.com/HaSan1y" class="dropdown-item" title="Github">Github</a>
+						</li>
+						<li>
+							<a href="./lindex.html" class="dropdown-item" title="login/register">login/register</a>
+						</li>
+						<li>
+							<a href="#" class="dropdown-item active">404 Error</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- <article> -->
+	<header class="wrapper">
+		<!-- cookie -->
+		<h2>Cookie Consent</h2>
+		<div class="data">
+			<p>This website uses cookies, to help you have a superior and more admissible browsing experience<br /><a
+					href="https://www.datenschutz.org/cookie-consent/">Read more...</a></p>
+		</div>
+		<div class="buttons">
+			<button type="button" class="btn-primary butt" id="acceptBtn" name="acceptBtn">Accept</button>
+			<button type="button" class="btn-primary butt" name="declineBtn">Decline</button>
+		</div>
+	</header>
+
+	<!-- terms -->
+	<div id="disclaimerModal" class="hidden">
+		<div class="modal-content">
+			<h2>Disclaimer and Liability Notice</h2>
+			<p>
+				By using this website, you agree to the following terms and conditions:
+			</p>
+			<ol>
+				<li>
+					The content on this website is for informational purposes only and should not be construed as
+					advice or recommendations.
+				</li>
+				<li>
+					We do not guarantee the accuracy, completeness, or reliability of any information provided on
+					this website.
+				</li>
+				<li>
+					We are not responsible for any damages or losses that may occur as a result of using this website.
+				</li>
+			</ol>
+			<label>
+				<input type="checkbox" id="acknowledgeDisclaimer" required name="checkbox" />
+				I understand and agree to the terms of this disclaimer.
+			</label>
+			<p>If you have any questions or concerns, please contact us at [Your Contact Information].</p>
+			<div class="modal-footer">
+				<button type="button" id="closeDisclaimerModal" name="termsCloseBtn">Close</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- banner -->
+	<div class="yourbanner">
+		<div class="x">your banner</div>
+		<img src="#" alt="This is a Demo Site more info on GitHub" class="img-fluid" loading="lazy" />
+	</div>
+	<br />
+
+	<!-- themeswitch -->
+	<form class="color-picker">
+		<fieldset>
+			<label for="light" class="color-option light">
+				<input type="radio" name="theme" id="light" />
+			</label>
+
+			<label for="pink" class="color-option pink">
+				<input type="radio" id="pink" name="theme" />
+			</label>
+
+			<label for="blue" class="color-option blue">
+				<input type="radio" id="blue" name="theme" />
+			</label>
+
+			<label for="green" class="color-option green">
+				<input type="radio" id="green" name="theme" />
+			</label>
+
+			<label for="dark" class="color-option dark">
+				<input type="radio" id="dark" name="theme" checked />
+			</label>
+		</fieldset>
+	</form>
+
+	<main>
+		<!-- submit form -->
+		<div class="conainer">
+			<div class="msg">
+				<p hidden>
+					<br />
+				</p>
+				<p hidden>Site-Logic:</p>
+				<p hidden>Client/You can Store/retrieve/translate Text 2x FrontSide(Question), 1x BackSide(Solution).</p>
+				<div id="coco">
+					<div class="dboptionswitcher">
+						<select id="selectswitchdb" class="repoSelect" name="form-select" aria-label="Default select example"
+							style="width: 200px; margin: auto" nonce="abc123">
+							<option value="0">decide on which DB</option>
+							<option value="indexdb">IndexDB</option>
+							<option value="server">Server(local-nodejs)</option>
+							<option value="sessiondb">Session storage</option>
+							<option value="localdb">Local storage</option>
+						</select>
+					</div>
+					<button nonce="abc123" type="button" class="btn-primary text-white" onclick="switchDatabase()"
+						style="max-width: 100px; margin: auto" nonce="abc123">Confirm DB</button>
+					<p class="text"><b>Submit Unempty+Unique Data</b></p>
+					<!-- <button type="submit" id="switch-script" class="btn sw btn-primary">SwitchDB</button> -->
+					<!-- onclick="import('.js/client-server/client-crudfs2server.js')" -->
+					<!-- <div id="script-output"></div> -->
+				</div>
+			</div>
+			<!-- do not delete one form for indexdb, + 1 form for server, + 1 form for local/sessionstorage -->
+			<form id="dbbtn" style="display: none">
+				<label for="t1"> <input type="text" id="t1" name="t1" placeholder="title" maxlength="12" required
+						autocomplete="off" /></label>
+				<label for="t2"> <input type="text" id="t2" name="t2" placeholder="question" maxlength="12" required
+						autocomplete="off" /></label>
+				<label for="t3"> <input type="text" id="t3" name="t3" placeholder="solution" maxlength="12" required
+						autocomplete="off" /></label>
+			</form>
+			<form id="txtbtn" style="display: none">
+				<label for="tt1"> <input type="text" id="tt1" name="t1" placeholder="title" maxlength="12" required
+						autocomplete="off" /></label>
+				<label for="tt2"> <input type="text" id="tt2" name="t2" placeholder="question" maxlength="12" required
+						autocomplete="off" /></label>
+				<label for="tt3"> <input type="text" id="tt3" name="t3" placeholder="solution" maxlength="12" required
+						autocomplete="off" /></label>
+			</form>
+			<form id="sessionbtn" style="display: none">
+				<label for="s1"> <input type="text" id="s1" name="s1" placeholder="title" maxlength="12" required
+						autocomplete="off" /></label>
+				<label for="s2"> <input type="text" id="s2" name="s2" placeholder="question" maxlength="12" required
+						autocomplete="off" /></label>
+				<label for="s3"> <input type="text" id="s3" name="s3" placeholder="solution" maxlength="12" required
+						autocomplete="off" /></label>
+			</form>
+		</div>
+
+		<div class="text-center" id="cardHolder">
+			<!-- test card structure-->
+			<!-- <div class="myCard">
+					<div class="innerCard">
+						<div class="frontSide">
+							<p class="title">FRONT SIDE</p>
+							<p>Hover Me</p>
+						</div>
+						<div class="backSide">
+							<p class="title">BACK SIDE</p>
+							<button>delete</button>
+						</div>
+					</div>
+				</div> -->
+		</div>
+		<br />
+		<div style="display: grid">
+			<div id="google_translate_element"></div>
+
+			<textarea name="text"></textarea>
+			<div id="buttons" class="container">
+				<div id="zbtns"></div>
+				<!-- &ndash;- &nbsp; &amp;&<button type="button" id="tofile" onclick="addTextToFile()">clientside js save 'title' into .txt-file</button> -->
+
+			</div>
+		</div>
+		<div class="links">
+			<p><a rel="nofollow" class="btn" title="humanbenchmark" href="https://humanbenchmark.com/">humanbenchmark</a>
+			</p>
+			<p><a rel="nofollow" class="btn" title="linkduolingo" href="https://www.duolingo.com">duolingo</a></p>
+			<p><a rel="nofollow" class="btn" title="quillbot" href="https://quillbot.com/">quillbot</a></p>
+			<p><a rel="nofollow" class="btn" title="grammarly"
+					href="https://www.grammarly.com/paraphrasing-tool">grammarly</a></p>
+			<p><a rel="nofollow" class="btn" title="feedough" href="https://www.feedough.com/">feedough</a></p>
+			<p><a rel="nofollow" class="btn" title="jenni.ai" href="https://jenni.ai/">jenni.ai</a></p>
+
+			<p><a rel="nofollow" class="btn" title="getmagical" href="https://www.getmagical.com/">getmagical</a></p>
+			<p><a rel="nofollow" class="btn" title="unriddle.ai" href="https://www.unriddle.ai/">unriddle.ai</a></p>
+			<p><a rel="nofollow" class="btn" title="mr.dialect"
+					href="https://mr-dialect.com/de-ch/deutsch-raetoromanisch-uebersetzer-2/">mr.dialect</a></p>
+			<p><a rel="nofollow" class="btn" title="openpsychometrics"
+					href="http://openpsychometrics.org/">openpsychometrics</a></p>
+			<p><a rel="nofollow" class="btn" title="deepl" href="https://www.deepl.com/write#en/">deepl</a></p>
+			<p><a rel="nofollow" class="btn" title="translate.google"
+					href="https://translate.google.com/?hl=de&tab=TT&sl=en&tl=de&text=">translate.google</a></p>
+		</div>
+		<aside id="twitch">
+			<input type="checkbox" name="ox" class="twitch-toggle" />
+			<div class="embedholder">
+				<form class="radio-form" id="f">
+					<input value="c" name="hopping" type="radio" id="c" />
+					<label for="c"><span></span>C</label>
+					<input value="p" name="hopping" type="radio" id="p" />
+					<label for="p"><span></span>P</label>
+					<input value="tb" name="hopping" type="radio" id="tb" />
+					<label for="tb"><span></span>tb</label>
+					<input value="y" name="hopping" type="radio" id="y" />
+					<label for="y"><span></span>y</label>
+					<input value="s" name="hopping" type="radio" id="s" />
+					<label for="s"><span></span>s</label>
+					<input value="t" name="hopping" type="radio" id="t" checked />
+					<label for="t"><span></span>T</label>
+					<div class="worm" id="worm">
+						<div class="worm__segment"></div>
+					</div>
+				</form>
+
+				<input type="text" list="streamers" placeholder="" id="buttonx" />
+				<div class="embedholders" id="embedholders">
+					<div class="tw__inner">
+						<label for="delboxx">delete Twitch embed</label>
+						<input type="checkbox" id="delboxx" name="delboxx" />
+					</div>
+					<!-- Add a placeholder for the Twitch embed -->
+					<div id="twitch-embed"></div>
+				</div>
+				<datalist id="streamers">
+					<option value="cerbervt"></option>
+					<option value="plush"></option>
+					<option value="trumporbiden2028"></option>
+					<option value="thinkerbella"></option>
+					<option value="spwooqi"></option>
+					<option value="shonzo"></option>
+				</datalist>
+			</div>
+
+		</aside>
+
+		<!-- advice api -->
+		<div class="advice container">
+			<button class="btn-primary" type="button" id="buon">Advice</button>
+			<div class="group">
+				<div id="adviceid"></div>
+				<div id="insult"></div>
+				<div id="advice"></div>
+				<div id="err"></div>
+
+				<!-- htmx -->
+				<button hx-get="/api/htmx-joke" hx-trigger="click" id="htmx-proxy" hidden hx-target="#joke"
+					hx-swap="innerHTML" hx-indicator="#indicator" class="btn btn-primary">
+					Click Me!
+					<img class="htmx-indicator" id="indicator" src="image/favicon-16x16.png" alt="Loading..." />
+				</button>
+				<div hide id="joke"></div>
+				<!-- hx-trigger="click[ctrlKey]" hx-trigger="every 2s"-->
+
+				<!-- </picture> -->
+				<!-- <source id="img" src="./img/1.jpg" type="image/webp" /> -->
+				<img id="imgg" src="" class="htmx-img" height="200" width="200" alt="Loading" hidden />
+			</div>
+		</div>
+		<!-- candle -->
+		<!-- <div class="holder">
+				<div class="candle">
+					<div class="blinking-glow"></div>
+					<div class="thread"></div>
+					<div class="glow"></div>
+					<div class="flame"></div>
+				</div>
+			</div> -->
+
+		<!-- upload -->
+		<!-- <form method="post" class="xx" enctype="multipart/form-data">     //preventdefault???
+				<input type="file" name="files" id="files" accept=".png" name="pic" multiple />
+				accept='video/*' upload any video >
+				<label for="files">			</label>
+			<button type="submit" id="uploadBtn">Upload PNG</button>		</form> -->
+
+		<!-- <section class="wowplayground">
+			<img src="./public/image/blog1.webp" width="100" height="100" class="wow slideInLeft" data-wow-offset="5" data-wow-iteration="1" data-wow-duration="2s" data-wow-delay="1s" />
+		</section> -->
+
+		<a href="#" class="btn-primary back-to-top">^</a>
+	</main>
+	<footer class="text-gray-300 footer wow fadeIn" data-wow-delay="0.1s">
+		<div class="mx-auto px-4">
+			<div class="pt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div>
+					<h5 class="text-white text-lg font-semibold mb-6">Get In Touch</h5>
+					<!-- Contact Form Section -->
+					<section class="container contact-section py-8">
+						<!-- <h2 class="text-center text-2xl font-bold mb-6">Contact Me</h2> -->
+						<dialog id="contactDialog" class="modal relative">
+							<form action="https://formspree.io/f/xblogzkw" method="POST" id="contactForm"
+								class="max-w-xl mx-auto bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md ">
+								<div class="x absolute top-4 right-4">
+									<label for="closeDialogBtn">close:</label>
+									<input type="checkbox" id="closeDialogBtn"
+										class="mt-2 w-full bg-gray-300 dark:bg-gray-600 p-2 rounded" />
+
+								</div>
+								<div class="mb-4">
+									<label for="contactName" class="block text-sm font-medium mb-1">Name</label>
+									<input type="text" id="contactName" name="name" required
+										class="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600" />
+								</div>
+								<div class="mb-4">
+									<label for="contactEmail" class="block text-sm font-medium mb-1">Your Email (for
+										reply)</label>
+									<input type="email" id="contactEmail" name="email" required
+										class="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600" />
+								</div>
+								<div class="mb-4">
+									<label for="contactSubject" class="block text-sm font-medium mb-1">Subject</label>
+									<input type="text" id="contactSubject" name="subject" required
+										class="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600" />
+								</div>
+								<div class="mb-4">
+									<label for="contactMessage" class="block text-sm font-medium mb-1">Message</label>
+									<textarea id="contactMessage" name="message" rows="4" required
+										class="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600"></textarea>
+								</div>
+								<div id="contactFormStatus" class="mb-4 text-sm"></div>
+								<button type="submit" class="btn-primary w-full">Send Message</button>
+							</form>
+						</dialog>
+						<button id="showDialogBtn" class="btn-primary mt-4">Show the dialog</button>
+					</section>
+					<!-- End Contact Form Section -->
+					<div class="flex space-x-4 d-flex mt-8 iconsHolder">
+						<a class="text-gray-400 hover:text-white transition-colors btn-social" href="https://x.com/"><i
+								class="fab fa-twitter"></i></a>
+						<a class="text-gray-400 hover:text-white transition-colors btn-social"
+							href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+						<a class="text-gray-400 hover:text-white transition-colors btn-social"
+							href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+						<a class="text-gray-400 hover:text-white transition-colors btn-social"
+							href="https://ch.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+				</div>
+				<div class="quick">
+					<h5 class="text-white text-lg font-semibold mb-4">Quick Links</h5>
+					<div class="space-y-2">
+						<a class="block hover:text-white transition-colors btn-link" href="#">About Us</a>
+						<a class="block hover:text-white transition-colors btn-link" href="#">Contact Us</a>
+						<a class="block hover:text-white transition-colors btn-link" href="#">Our Services</a>
+						<a class="block hover:text-white transition-colors btn-link" href="#">Privacy Policy</a>
+						<a class="block hover:text-white transition-colors btn-link" href="#">Terms & Condition</a>
+					</div>
+				</div>
+				<div class="">
+					<h5 class="text-white text-lg font-semibold mb-4">Support</h5>
+					<div class="grid grid-cols-4 gap-2 pt-2">
+						<div>
+							<a class="gumroad-button" href="https://hadirekt.gumroad.com/l/vsdoo" title="Kaufen"
+								class="img-fluid rounded p-1">Kaufen</a>
+						</div>
+
+						<div>
+							<img loading="lazy" class="img-fluid rounded p-1" src="#" alt="" />
+						</div>
+						<a href='https://ko-fi.com/00101' target='_blank'>
+							<img height='36' style='border:0' src='https://cdn.ko-fi.com/cdn/kofi5.png' alt='Ko-fi' />
+						</a>
+						<!-- <div>
+							<img loading="lazy" class="img-fluid rounded p-1" src="#" alt="" />
+						</div> -->
+					</div>
+				</div>
+				<div>
+					<h5 class="text-white text-lg font-semibold mb-4">Newsletter</h5>
+					<form class="">
+						<label class="block text-sm font-medium text-gray-300 mb-2" for="il">Email</label>
+						<div class="flex items-center">
+							<input
+								class="flex-grow p-2 rounded-l-md focus:outline-none focus:ring-2 dark:bg-gray-700 dark:border-gray-600 border border-gray-300"
+								type="email" name="il" placeholder="Your Email" autocomplete="off" id="il" required />
+							<button type="button" class="rounded-r-md btn-primary" id="subscribe">SignUp</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="border-t border-gray-700 container">
+			<div class="flex flex-col md:flex-row justify-between items-center copyright row">
+				<div class="text-center md:text-left mb-4 md:mb-0 text-md-start mb-md-0">
+					<!-- &copy; 2024 -->
+					<span>
+					</span>
+				</div>
+				<div class="text-center text-md-end">
+					<div class="flex space-x-4 footer-menu">
+						<a class="hover:text-white transition-colors btn-link" href="#">Home</a>
+						<a class="hover:text-white transition-colors btn-link" href="#">Cookies</a>
+						<a class="hover:text-white transition-colors btn-link" href="#">Help</a>
+						<a class="hover:text-white transition-colors btn-link" href="#">Terms</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://gumroad.com/js/gumroad.js"></script>
+
+	<script>
+		const dialog = document.getElementById("contactDialog");
+		const showButton = document.getElementById("showDialogBtn");
+		const closeButton = document.getElementById("closeDialogBtn");
+		showButton.addEventListener("click", () => { dialog.showModal(); dialog.focus(); dialog.scrollIntoView(); });
+		closeButton.addEventListener("click", () => { dialog.close(); });
+	</script>
+	<script nonce="abc123">
+		function googleTranslateElementImit() {
+			new google.translate.TranslateElement({ pageLanguage: "en" }, "google_translate_element");
+		}
+	</script>
+	<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementImit">
+	</script>
+	<!-- npm i wowjs //animate.css-->
+	<script src="./js/wow/wow.min.js" nonce="abc123"></script>
+	<!-- v has to be lastly initiated new WOW().init()-->
+	<script nonce="abc123">
+		new WOW().init();
+	</script>
+</body>
+
+</html>
