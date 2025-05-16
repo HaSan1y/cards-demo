@@ -4,8 +4,6 @@ node_modules
 *.env
 *.env.*
 
-how
-public/test2.html
 
 public/image/blog1.webp
 public/css/style.scss
@@ -13,9 +11,3 @@ public/css/style.css.map
 
 .vscode
 *.txt
-config.js
-Sales.md
-
-# Local Netlify folder
-.netlify
-.vercel
