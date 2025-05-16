@@ -16,8 +16,10 @@ Den vollständigen Quellcode (VanillaJS)
 Eine kompakte Anleitung zur lokalen Nutzung oder zum Self-Hosting
 
 ## 🔍 Öffentliche Demo:
+
 - 👉 [GitHub-Demo](https://github.com/HaSan1y/cards-demo) 
-- [Live-Vorschau](https://db-2-cards.vercel.app/)
+- [Live-Vorschau-Vercel](https://db-2-cards.vercel.app)
+- [Live-Vorschau-Netlify](https://elegant-bubblegum-a62895.netlify.app)
 
 
 ## 💬 Motivation:
